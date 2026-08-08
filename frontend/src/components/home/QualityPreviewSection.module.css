@@ -1,0 +1,177 @@
+.section {
+  background-color: var(--color-bg-subtle);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: var(--space-16);
+  align-items: center;
+}
+
+/* ── Content ──────────────────────────────────────── */
+.title {
+  max-width: 480px;
+}
+
+.body {
+  font-size: var(--text-base);
+  color: var(--color-text-muted);
+  line-height: var(--leading-relaxed);
+  max-width: 520px;
+  margin-bottom: var(--space-8);
+}
+
+.highlights {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-bottom: var(--space-10);
+}
+
+.highlight {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: var(--leading-normal);
+}
+
+.checkIcon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  margin-top: 1px;
+  background: rgba(124,92,62,0.12);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-accent);
+}
+
+.checkIcon svg {
+  width: 10px;
+  height: 10px;
+}
+
+.highlightLabel {
+  font-weight: var(--weight-semibold);
+  color: var(--color-charcoal);
+}
+
+.highlightDesc {
+  color: var(--color-text-muted);
+}
+
+/* ── Panel ────────────────────────────────────────── */
+.panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.panelInner {
+  position: relative;
+  width: 320px;
+  height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ring1,
+.ring2,
+.ring3 {
+  position: absolute;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border);
+}
+
+.ring1 {
+  inset: 0;
+  opacity: 0.6;
+}
+
+.ring2 {
+  inset: 24px;
+  opacity: 0.4;
+}
+
+.ring3 {
+  inset: 48px;
+  border-style: dashed;
+  opacity: 0.3;
+  border-color: var(--color-accent);
+}
+
+.panelBadge {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+  text-align: center;
+  padding: var(--space-8);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  width: 160px;
+  height: 160px;
+  justify-content: center;
+  box-shadow: var(--shadow-md);
+}
+
+.badgeTop {
+  font-size: 10px;
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.badgeMain {
+  font-size: var(--text-xl);
+  font-weight: var(--weight-bold);
+  color: var(--color-charcoal);
+  letter-spacing: var(--tracking-tight);
+}
+
+.badgeSub {
+  font-size: var(--text-sm);
+  color: var(--color-accent);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+}
+
+.badgeDivider {
+  width: 24px;
+  height: 1px;
+  background: var(--color-border-dark);
+  margin-block: var(--space-1);
+}
+
+.badgeYear {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  letter-spacing: var(--tracking-wider);
+}
+
+/* ── Responsive ───────────────────────────────────── */
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+    gap: var(--space-10);
+  }
+
+  .panel {
+    order: -1;
+  }
+
+  .panelInner {
+    width: 260px;
+    height: 260px;
+  }
+}

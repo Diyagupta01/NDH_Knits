@@ -1,0 +1,22 @@
+.header {
+  margin-bottom: var(--space-12);
+}
+
+.center {
+  text-align: center;
+}
+.center .subtitle {
+  margin-inline: auto;
+}
+
+.title {
+  max-width: 680px;
+}
+
+.center .title {
+  margin-inline: auto;
+}
+
+.subtitle {
+  max-width: 600px;
+}

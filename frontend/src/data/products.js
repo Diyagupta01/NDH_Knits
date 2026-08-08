@@ -236,6 +236,18 @@ export const productCategories = [
             features: [],
             specifications: {},
           },
+          {
+            id: 'men-basic',
+            slug: 'basic',
+            name: "Basic Men's Gloves",
+            description: 'A knitted glove designed for warmth and a reliable fit. Details and variants to be confirmed.',
+            variants: [],
+            gallery: [],
+            sizes: [],
+            materials: [],
+            features: [],
+            specifications: {},
+          },
         ],
       },
       {
@@ -268,7 +280,7 @@ export const productCategories = [
       'Warm, well-fitted knitted caps manufactured to meet bulk requirements with consistent quality and finish.',
     description:
       'NDH Knits manufactures knitted caps that combine warmth with a clean, market-ready finish. Produced to meet wholesale volume requirements, our caps are crafted for consistent sizing and reliable quality across every batch.',
-    heroImage: null,
+    heroImage: '/caps/HeroImageCaps.png',
     gallery: [],
     features: [],
     sizes: [],

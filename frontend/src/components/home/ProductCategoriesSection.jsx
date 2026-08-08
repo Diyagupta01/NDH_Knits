@@ -37,7 +37,7 @@ function CategoryCard({ category }) {
         {heroImage ? (
           <img
             src={heroImage}
-            alt={name}
+            alt={`NDH Knits ${name} — knitted hosiery manufacturer, Ludhiana`}
             className={styles.realImage}
             loading="lazy"
           />

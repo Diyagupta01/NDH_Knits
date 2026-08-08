@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import Button from '../components/ui/Button';
 import ImagePlaceholder from '../components/ui/ImagePlaceholder';
+import SEO from '../components/ui/SEO';
 import styles from './AboutPage.module.css';
 
 const values = [
@@ -33,6 +34,11 @@ const values = [
 export default function AboutPage() {
   return (
     <div className={styles.page}>
+      <SEO
+        title="About Us — Hosiery Manufacturer Since 1957"
+        description="Learn about NDH Knits — a trusted hosiery manufacturer in Ludhiana, Punjab, with over 70 years of textile expertise. We manufacture premium socks, gloves, mufflers, caps, thermal wear and knitted essentials for wholesalers across India."
+        canonical="/about"
+      />
 
       {/* ── Page Hero ──────────────────────────────── */}
       <section className={styles.pageHero} aria-label="About NDH Knits">

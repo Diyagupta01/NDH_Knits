@@ -3,6 +3,7 @@ import { useParams, Link, Navigate } from 'react-router-dom';
 import { getCategoryBySlug, getStyleBySlug, getProductBySlug } from '../../data/products';
 import ImagePlaceholder from '../../components/ui/ImagePlaceholder';
 import Button from '../../components/ui/Button';
+import SEO from '../../components/ui/SEO';
 import styles from './ProductDetailPage.module.css';
 
 export default function ProductDetailPage() {
@@ -54,6 +55,11 @@ function ProductDetail({ category, style, product, categorySlug, styleSlug }) {
 
   return (
     <div className={styles.page}>
+      <SEO
+        title={`${product.name} — ${style.name} | ${category.name}`}
+        description={`${product.description} Available from NDH Knits, Ludhiana — wholesale supplier of premium knitted hosiery across India.`}
+        canonical={`/products/${categorySlug}/${styleSlug}/${productSlug}`}
+      />
 
       {/* ── Breadcrumb ────────────────────────────── */}
       <div className={styles.breadcrumbBar}>
@@ -92,7 +98,7 @@ function ProductDetail({ category, style, product, categorySlug, styleSlug }) {
                 {primaryImage ? (
                   <img
                     src={galleryImages[activeImageIndex] || primaryImage}
-                    alt={`${product.name}${activeVariant ? ` — ${activeVariant.colour}` : ''}`}
+                    alt={`NDH Knits ${product.name}${activeVariant ? ` in ${activeVariant.colour}` : ''} — ${style.name}`}
                     className={styles.primaryImg}
                   />
                 ) : (
@@ -117,7 +123,7 @@ function ProductDetail({ category, style, product, categorySlug, styleSlug }) {
                       aria-label={`View image ${i + 1}`}
                       aria-pressed={i === activeImageIndex}
                     >
-                      <img src={img} alt="" className={styles.thumbImg} loading="lazy" />
+                      <img src={img} alt={`${product.name} thumbnail ${i + 1}`} className={styles.thumbImg} loading="lazy" />
                     </button>
                   ))}
                 </div>
@@ -272,7 +278,7 @@ function ProductDetail({ category, style, product, categorySlug, styleSlug }) {
                 >
                   <img
                     src={img}
-                    alt={`${product.name} — image ${i + 1}`}
+                    alt={`NDH Knits ${product.name}${activeVariant ? ` in ${activeVariant.colour}` : ''} — image ${i + 1}`}
                     className={styles.galleryImg}
                     loading="lazy"
                   />

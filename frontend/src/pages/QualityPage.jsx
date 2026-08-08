@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import Button from '../components/ui/Button';
 import ProcessSection from '../components/home/ProcessSection';
+import SEO from '../components/ui/SEO';
 import styles from './QualityPage.module.css';
 
 const qualityPillars = [
@@ -45,6 +46,11 @@ const qualityPillars = [
 export default function QualityPage() {
   return (
     <div className={styles.page}>
+      <SEO
+        title="Quality Assurance — Manufacturing Standards"
+        description="At NDH Knits, quality is built into every stage of production. From raw material inspection to final dispatch, every product meets strict standards for comfort, durability and consistency."
+        canonical="/quality"
+      />
 
       {/* ── Page Hero ──────────────────────────────── */}
       <section className={styles.hero} aria-label="Quality Assurance hero">

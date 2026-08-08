@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { productCategories } from '../data/products';
 import { submitInquiry } from '../services/api';
+import SEO from '../components/ui/SEO';
 import styles from './ContactPage.module.css';
 
 const baseForm = {
@@ -87,6 +88,11 @@ export default function ContactPage() {
 
   return (
     <div className={styles.page}>
+      <SEO
+        title="Contact Us — Wholesale Inquiries"
+        description="Get in touch with NDH Knits for wholesale inquiries, product availability, and pricing. Based in Ludhiana, Punjab — serving retailers and wholesalers across India."
+        canonical="/contact"
+      />
 
       {/* ── Page Hero ──────────────────────────────── */}
       <section className={styles.hero} aria-label="Contact page hero">

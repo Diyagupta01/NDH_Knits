@@ -2,11 +2,17 @@ import { Link } from 'react-router-dom';
 import { productCategories } from '../data/products';
 import ImagePlaceholder from '../components/ui/ImagePlaceholder';
 import Button from '../components/ui/Button';
+import SEO from '../components/ui/SEO';
 import styles from './ProductsPage.module.css';
 
 export default function ProductsPage() {
   return (
     <div className={styles.page}>
+      <SEO
+        title="Our Products — Hosiery Catalogue"
+        description="Browse NDH Knits' full range of knitted hosiery products — socks, gloves, caps, mufflers, thermal wear, leg warmers and knitted essentials. Wholesale supply from Ludhiana, Punjab."
+        canonical="/products"
+      />
 
       {/* ── Page Hero ──────────────────────────────── */}
       <section className={styles.pageHero} aria-label="Products catalogue hero">
@@ -66,7 +72,7 @@ function CategoryCard({ category }) {
         {heroImage ? (
           <img
             src={heroImage}
-            alt={name}
+            alt={`NDH Knits ${name} — wholesale knitted hosiery, Ludhiana`}
             className={styles.realImage}
             loading="lazy"
           />

@@ -3,6 +3,7 @@ import { useParams, Link, Navigate, useSearchParams } from 'react-router-dom';
 import { getCategoryBySlug, productCategories } from '../../data/products';
 import ImagePlaceholder from '../../components/ui/ImagePlaceholder';
 import Button from '../../components/ui/Button';
+import SEO from '../../components/ui/SEO';
 import styles from './CategoryPage.module.css';
 
 // ─── Entry point ─────────────────────────────────────────────────────────────
@@ -42,12 +43,17 @@ function CatalogueLayout({ category }) {
 
   return (
     <div className={styles.page}>
+      <SEO
+        title={`${category.name} — Knitted Hosiery | NDH Knits`}
+        description={`${category.shortDescription} Manufactured in Ludhiana, Punjab for wholesale supply across India.`}
+        canonical={`/products/${categorySlug}`}
+      />
 
       {/* ── Compact Hero ─────────────────────────── */}
       <section className={styles.compactHero} aria-label={`${category.name} overview`}>
         <div className={styles.compactHeroBg}>
           {category.heroImage ? (
-            <img src={category.heroImage} alt={category.name} className={styles.compactHeroBgImg} />
+            <img src={category.heroImage} alt={`NDH Knits ${category.name} — knitted hosiery manufacturer, Ludhiana`} className={styles.compactHeroBgImg} />
           ) : (
             <div className={styles.compactHeroBgFallback} />
           )}
@@ -270,7 +276,7 @@ function ProductCard({ product, categorySlug, styleSlug }) {
           {displayImage ? (
             <img
               src={displayImage}
-              alt={`${product.name}${activeVariant ? ` — ${activeVariant.colour}` : ''}`}
+              alt={`${product.name} — ${activeVariant ? activeVariant.colour : ''} | NDH Knits ${style.name}`}
               className={styles.productCardImg}
               loading="lazy"
             />
@@ -350,6 +356,11 @@ function GenericLayout({ category }) {
 
   return (
     <div className={styles.page}>
+      <SEO
+        title={`${name} — Knitted Hosiery`}
+        description={`${description} Manufactured in Ludhiana, Punjab for wholesale supply across India.`}
+        canonical={`/products/${categorySlug}`}
+      />
 
       <section className={styles.hero} aria-label={`${name} category hero`}>
         <div className={styles.heroBg}>
@@ -465,7 +476,7 @@ function GenericLayout({ category }) {
             <div className={styles.galleryGrid}>
               {gallery.map((img, i) => (
                 <div key={i} className={styles.galleryItem}>
-                  <img src={img} alt={`${name} product image ${i + 1}`} className={styles.galleryImg} loading="lazy" />
+                  <img src={img} alt={`NDH Knits ${name} product image ${i + 1}`} className={styles.galleryImg} loading="lazy" />
                 </div>
               ))}
             </div>

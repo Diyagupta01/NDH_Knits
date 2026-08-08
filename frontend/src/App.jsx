@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ProductsPage from './pages/ProductsPage';
 import CategoryPage from './pages/products/CategoryPage';
+import ProductDetailPage from './pages/products/ProductDetailPage';
 import QualityPage from './pages/QualityPage';
 import ContactPage from './pages/ContactPage';
 import NotFoundPage from './pages/NotFoundPage';
@@ -24,13 +25,14 @@ export default function App() {
       <ScrollToTop />
       <Layout>
         <Routes>
-          <Route path="/"                           element={<HomePage />} />
-          <Route path="/about"                      element={<AboutPage />} />
-          <Route path="/products"                   element={<ProductsPage />} />
-          <Route path="/products/:slug"             element={<CategoryPage />} />
-          <Route path="/quality"                    element={<QualityPage />} />
-          <Route path="/contact"                    element={<ContactPage />} />
-          <Route path="*"                           element={<NotFoundPage />} />
+          <Route path="/"                                                          element={<HomePage />} />
+          <Route path="/about"                                                     element={<AboutPage />} />
+          <Route path="/products"                                                  element={<ProductsPage />} />
+          <Route path="/products/:categorySlug"                                    element={<CategoryPage />} />
+          <Route path="/products/:categorySlug/:styleSlug/:productSlug"           element={<ProductDetailPage />} />
+          <Route path="/quality"                                                   element={<QualityPage />} />
+          <Route path="/contact"                                                   element={<ContactPage />} />
+          <Route path="*"                                                          element={<NotFoundPage />} />
         </Routes>
       </Layout>
     </BrowserRouter>

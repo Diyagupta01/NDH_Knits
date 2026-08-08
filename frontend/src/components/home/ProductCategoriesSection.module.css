@@ -36,6 +36,18 @@
   overflow: hidden;
 }
 
+.realImage {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--transition-slow);
+}
+
+.card:hover .realImage {
+  transform: scale(1.03);
+}
+
 .imgPlaceholder {
   border-radius: 0;
   transition: transform var(--transition-slow);

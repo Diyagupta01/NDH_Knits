@@ -1,52 +1,8 @@
 import { Link } from 'react-router-dom';
 import SectionHeader from '../ui/SectionHeader';
 import ImagePlaceholder from '../ui/ImagePlaceholder';
+import { productCategories } from '../../data/products';
 import styles from './ProductCategoriesSection.module.css';
-
-const categories = [
-  {
-    slug: 'socks',
-    name: 'Socks',
-    description:
-      'A comprehensive range of knitted socks crafted for comfort, durability, and consistent fit — suitable for all ages and seasons.',
-  },
-  {
-    slug: 'gloves',
-    name: 'Gloves',
-    description:
-      'Precision-knitted gloves offering warmth and flexibility, designed for supply across retail and distribution channels.',
-  },
-  {
-    slug: 'caps',
-    name: 'Caps',
-    description:
-      'Warm, well-fitted knitted caps manufactured to meet all requirements with consistent quality and finish.',
-  },
-  {
-    slug: 'mufflers',
-    name: 'Mufflers',
-    description:
-      'Soft, durable mufflers produced in a variety of styles to suit market demands across India.',
-  },
-  {
-    slug: 'thermal-wear',
-    name: 'Thermal Wear',
-    description:
-      'Reliable thermal innerwear engineered to retain warmth without compromising on comfort or wearability.',
-  },
-  {
-    slug: 'leg-warmers',
-    name: 'Leg Warmers',
-    description:
-      'A versatile range of knitted leg warmers — footless, knee cap, knee cap with leg, and hipless — for year-round wholesale supply.',
-  },
-  {
-    slug: 'knitted-essentials',
-    name: 'Knitted Essentials',
-    description:
-      'An assorted range of quality knitted products complementing our core hosiery line, crafted with the same manufacturing precision.',
-  },
-];
 
 export default function ProductCategoriesSection() {
   return (
@@ -60,7 +16,7 @@ export default function ProductCategoriesSection() {
         />
 
         <div className={styles.grid}>
-          {categories.map((cat) => (
+          {productCategories.map((cat) => (
             <CategoryCard key={cat.slug} category={cat} />
           ))}
         </div>
@@ -70,7 +26,7 @@ export default function ProductCategoriesSection() {
 }
 
 function CategoryCard({ category }) {
-  const { slug, name, description } = category;
+  const { slug, name, shortDescription, heroImage } = category;
   return (
     <Link
       to={`/products/${slug}`}
@@ -78,16 +34,25 @@ function CategoryCard({ category }) {
       aria-label={`View ${name} products`}
     >
       <div className={styles.cardImage}>
-        <ImagePlaceholder
-          label={name}
-          aspect="4/3"
-          className={styles.imgPlaceholder}
-        />
+        {heroImage ? (
+          <img
+            src={heroImage}
+            alt={name}
+            className={styles.realImage}
+            loading="lazy"
+          />
+        ) : (
+          <ImagePlaceholder
+            label={name}
+            aspect="4/3"
+            className={styles.imgPlaceholder}
+          />
+        )}
         <div className={styles.cardImageOverlay} aria-hidden="true" />
       </div>
       <div className={styles.cardBody}>
         <h3 className={styles.cardName}>{name}</h3>
-        <p className={styles.cardDesc}>{description}</p>
+        <p className={styles.cardDesc}>{shortDescription}</p>
         <span className={styles.cardCta} aria-hidden="true">
           Explore Products
           <ArrowIcon />

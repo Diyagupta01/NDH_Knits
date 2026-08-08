@@ -55,7 +55,7 @@ export default function ProductsPage() {
 }
 
 function CategoryCard({ category }) {
-  const { slug, name, shortDescription } = category;
+  const { slug, name, shortDescription, heroImage } = category;
   return (
     <Link
       to={`/products/${slug}`}
@@ -63,7 +63,16 @@ function CategoryCard({ category }) {
       aria-label={`View ${name} products`}
     >
       <div className={styles.cardImage}>
-        <ImagePlaceholder label={name} aspect="16/9" className={styles.imgPlaceholder} />
+        {heroImage ? (
+          <img
+            src={heroImage}
+            alt={name}
+            className={styles.realImage}
+            loading="lazy"
+          />
+        ) : (
+          <ImagePlaceholder label={name} aspect="16/9" className={styles.imgPlaceholder} />
+        )}
         <div className={styles.cardOverlay} aria-hidden="true" />
       </div>
       <div className={styles.cardBody}>

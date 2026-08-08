@@ -13,7 +13,8 @@ class InquiryRequest(BaseModel):
     company_name: Optional[str] = Field(None, max_length=200, description="Company or business name")
     phone: str = Field(..., min_length=7, max_length=30, description="Contact phone number")
     email: EmailStr = Field(..., description="Contact email address")
-    product_category: Optional[str] = Field(None, max_length=100, description="Product category of interest")
+    product_category: Optional[str] = Field(None, max_length=100, description="Product category slug")
+    product_detail: Optional[str] = Field(None, max_length=300, description="Specific product name / style context")
     quantity: Optional[str] = Field(None, max_length=200, description="Quantity or requirement description")
     message: str = Field(..., min_length=10, max_length=2000, description="Inquiry message")
 

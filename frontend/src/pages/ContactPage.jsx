@@ -1,22 +1,47 @@
 import { useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { productCategories } from '../data/products';
 import { submitInquiry } from '../services/api';
 import styles from './ContactPage.module.css';
 
-const initialForm = {
+const baseForm = {
   name: '',
   company_name: '',
   phone: '',
   email: '',
   product_category: '',
+  product_detail: '',   // holds product name + style context from URL
   quantity: '',
   message: '',
 };
 
 export default function ContactPage() {
-  const [form, setForm]           = useState(initialForm);
-  const [errors, setErrors]       = useState({});
-  const [status, setStatus]       = useState('idle'); // idle | loading | success | error
+  const [searchParams] = useSearchParams();
+
+  // Read product context passed from ProductDetailPage inquiry CTA
+  const productParam   = searchParams.get('product') || '';
+  const styleParam     = searchParams.get('style') || '';
+  const categoryParam  = searchParams.get('category') || '';
+
+  // Build a pre-fill value for product_detail and pre-select product_category
+  const productDetail = [productParam, styleParam].filter(Boolean).join(' — ');
+  const categorySlug  = productCategories.find(
+    (c) => c.name.toLowerCase() === categoryParam.toLowerCase()
+  )?.slug || '';
+
+  const initialForm = {
+    ...baseForm,
+    product_category: categorySlug,
+    product_detail: productDetail,
+    // Pre-populate message with product context as a helpful prompt
+    message: productDetail
+      ? `I am interested in the ${productDetail} and would like to inquire about wholesale availability and pricing.`
+      : '',
+  };
+
+  const [form, setForm]               = useState(initialForm);
+  const [errors, setErrors]           = useState({});
+  const [status, setStatus]           = useState('idle');
   const [serverError, setServerError] = useState('');
 
   function handleChange(e) {
@@ -51,7 +76,7 @@ export default function ContactPage() {
     try {
       await submitInquiry(form);
       setStatus('success');
-      setForm(initialForm);
+      setForm(baseForm);
     } catch (err) {
       setStatus('error');
       setServerError(
@@ -138,6 +163,22 @@ export default function ContactPage() {
               <p className={styles.formSubtitle}>
                 Fill in the form below and we'll get back to you as soon as possible.
               </p>
+
+              {/* Product context banner — shown when arriving from a product page */}
+              {productDetail && (
+                <div className={styles.productContext} role="note" aria-label="Inquiry context">
+                  <div className={styles.productContextIcon} aria-hidden="true">
+                    <PackageIcon />
+                  </div>
+                  <div className={styles.productContextText}>
+                    <span className={styles.productContextLabel}>Inquiring about</span>
+                    <span className={styles.productContextValue}>{productDetail}</span>
+                    {categoryParam && (
+                      <span className={styles.productContextCategory}>{categoryParam}</span>
+                    )}
+                  </div>
+                </div>
+              )}
 
               {status === 'success' ? (
                 <div className={styles.successState} role="alert" aria-live="polite">
@@ -230,6 +271,23 @@ export default function ContactPage() {
                       placeholder="e.g. 500 dozen pairs of socks"
                     />
                   </div>
+                  {/* Product detail — read-only context field, shown only when pre-filled */}
+                  {form.product_detail && (
+                    <div className={styles.formGroup}>
+                      <label className={styles.label} htmlFor="field-product_detail">
+                        Product of Interest
+                      </label>
+                      <input
+                        id="field-product_detail"
+                        name="product_detail"
+                        type="text"
+                        value={form.product_detail}
+                        onChange={handleChange}
+                        className={styles.input}
+                        placeholder="Product name / style"
+                      />
+                    </div>
+                  )}
                   <div className={styles.formGroup}>
                     <label className={styles.label} htmlFor="message">
                       Message <span className={styles.required} aria-hidden="true">*</span>
@@ -362,4 +420,8 @@ function PinIcon() {
 }
 function ClockIcon() {
   return <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>;
+}
+
+function PackageIcon() {
+  return <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>;
 }

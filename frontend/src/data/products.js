@@ -12,9 +12,11 @@
 
 /**
  * @typedef {Object} SubCategory
- * @property {string} id          - Unique identifier
- * @property {string} name        - Display name
- * @property {string} description - Short description
+ * @property {string}   id          - Unique identifier
+ * @property {string}   name        - Display name
+ * @property {string}   description - Short description
+ * @property {string|null} heroImage - Image used on subcategory card (null = placeholder)
+ * @property {string[]} gallery     - Ordered gallery images for this subcategory
  */
 
 /**
@@ -45,8 +47,13 @@ export const productCategories = [
       'A comprehensive range of knitted socks crafted for comfort, durability, and consistent fit — suitable for all ages and seasons.',
     description:
       'NDH Knits manufactures a wide range of socks designed to meet the demands of the wholesale and retail market. Each pair is knitted with precision to ensure consistent sizing, comfortable fit, and lasting durability. Our socks are available for all age groups and across seasonal requirements.',
-    heroImage: null,
-    gallery: [],
+    heroImage: "/socks/men/WhatsApp Image 2026-08-08 at 17.32.08.jpeg",
+    gallery: [
+      "/socks/men/WhatsApp Image 2026-08-08 at 17.32.08.jpeg",
+      "/socks/men/WhatsApp Image 2026-08-08 at 17.32.08 (1).jpeg",
+      "/socks/men/WhatsApp Image 2026-08-08 at 17.32.08 (2).jpeg",
+      "/socks/men/WhatsApp Image 2026-08-08 at 17.32.09.jpeg",
+    ],
     features: [],
     sizes: [],
     materials: [],
@@ -135,37 +142,95 @@ export const productCategories = [
       'A versatile range of knitted leg warmers available in multiple styles — from footless and knee caps to full-length and hipless variants.',
     description:
       'NDH Knits manufactures a complete range of leg warmers designed for comfort, warmth, and consistent fit. Available in four distinct styles to meet varied wholesale and retail requirements, our leg warmers are knitted with the same precision and quality standards applied across all NDH Knits products.',
-    heroImage: null,
-    gallery: [],
-    features: [],
-    sizes: [],
-    materials: [],
-    colors: [],
-    specifications: {},
+    heroImage: "/leg_warmers/footless/WhatsApp Image 2026-08-08 at 12.38.25.jpeg",
+    gallery: [
+      "/leg_warmers/footless/WhatsApp Image 2026-08-08 at 12.38.25.jpeg",
+      "/leg_warmers/knee_cap/WhatsApp Image 2026-08-08 at 12.45.30 (1).jpeg",
+      "/leg_warmers/knee_cap_leg/WhatsApp Image 2026-08-08 at 12.49.53.jpeg",
+    ],
+    features: [
+      '100% Pure Wool',
+      'Natural warmth & breathable comfort',
+      'Soft & gentle on skin',
+      'Stretchable fit',
+      'Durable & long lasting',
+      'Comfortable fit that stays in place',
+      'Natural & skin friendly',
+      'Unisex design',
+    ],
+    sizes: ['Normal', 'XL', 'XXL'],
+    materials: ['100% Pure Wool'],
+    colors: ['Black', 'Dark Charcoal', 'Dark Brown', 'Navy', 'Grey'],
+    specifications: {
+      'Material': '100% Pure Wool',
+      'Available Sizes': 'Normal, XL, XXL',
+      'Design': 'Unisex',
+      'Styles': 'Footless, Knee Cap, Knee Cap with Leg, Hipless',
+    },
     subcategories: [
       {
         id: 'footless',
         name: 'Footless',
         description:
           'Knitted leg warmers without a foot section — designed to provide warmth from ankle to thigh while allowing full freedom of movement for the foot.',
+        heroImage: "/leg_warmers/footless/WhatsApp Image 2026-08-08 at 12.38.25.jpeg",
+        gallery: [
+          "/leg_warmers/footless/WhatsApp Image 2026-08-08 at 12.38.24.jpeg",
+          "/leg_warmers/footless/WhatsApp Image 2026-08-08 at 14.26.34.jpeg",
+          "/leg_warmers/footless/WhatsApp Image 2026-08-08 at 12.38.25.jpeg",
+          "/leg_warmers/footless/WhatsApp Image 2026-08-08 at 12.38.26.jpeg",
+          "/leg_warmers/footless/WhatsApp Image 2026-08-08 at 14.35.06.jpeg",
+          "/leg_warmers/footless/WhatsApp Image 2026-08-08 at 14.26.35 (1).jpeg",
+          "/leg_warmers/footless/WhatsApp Image 2026-08-08 at 14.26.35.jpeg",
+          "/leg_warmers/footless/WhatsApp Image 2026-08-08 at 14.26.57.jpeg",
+        ],
       },
       {
         id: 'knee-cap',
         name: 'Knee Cap',
         description:
           'A fitted knitted sleeve designed to provide targeted warmth and compression support around the knee joint.',
+        heroImage: "/leg_warmers/knee_cap/WhatsApp Image 2026-08-08 at 12.45.30 (1).jpeg",
+        gallery: [
+          "/leg_warmers/knee_cap/WhatsApp Image 2026-08-08 at 12.45.30.jpeg",
+          "/leg_warmers/knee_cap/WhatsApp Image 2026-08-08 at 14.54.38.jpeg",
+          "/leg_warmers/knee_cap/WhatsApp Image 2026-08-08 at 12.45.30 (1).jpeg",
+          "/leg_warmers/knee_cap/WhatsApp Image 2026-08-08 at 12.45.30 (2).jpeg",
+          "/leg_warmers/knee_cap/WhatsApp Image 2026-08-08 at 12.46.29.jpeg",
+          "/leg_warmers/knee_cap/WhatsApp Image 2026-08-08 at 12.46.29 (1).jpeg",
+          "/leg_warmers/knee_cap/WhatsApp Image 2026-08-08 at 12.48.35.jpeg",
+          "/leg_warmers/knee_cap/WhatsApp Image 2026-08-08 at 12.48.35 (1).jpeg",
+          "/leg_warmers/knee_cap/WhatsApp Image 2026-08-08 at 14.54.39.jpeg",
+        ],
       },
       {
         id: 'knee-cap-with-leg',
         name: 'Knee Cap with Leg',
         description:
           'An extended version of the knee cap that includes a leg portion, offering combined knee support and lower leg warmth in a single knitted piece.',
+        heroImage: "/leg_warmers/knee_cap_leg/WhatsApp Image 2026-08-08 at 12.49.53.jpeg",
+        gallery: [
+          "/leg_warmers/knee_cap_leg/WhatsApp Image 2026-08-08 at 12.49.53.jpeg",
+          "/leg_warmers/knee_cap_leg/WhatsApp Image 2026-08-08 at 12.49.53 (1).jpeg",
+          "/leg_warmers/knee_cap_leg/WhatsApp Image 2026-08-08 at 12.49.54.jpeg",
+          "/leg_warmers/knee_cap_leg/WhatsApp Image 2026-08-08 at 12.52.22.jpeg",
+          "/leg_warmers/knee_cap_leg/WhatsApp Image 2026-08-08 at 12.52.22 (1).jpeg",
+          "/leg_warmers/knee_cap_leg/WhatsApp Image 2026-08-08 at 13.05.57.jpeg",
+          "/leg_warmers/knee_cap_leg/WhatsApp Image 2026-08-08 at 13.05.57 (1).jpeg",
+          "/leg_warmers/knee_cap_leg/WhatsApp Image 2026-08-08 at 13.05.57 (2).jpeg",
+          "/leg_warmers/knee_cap_leg/WhatsApp Image 2026-08-08 at 13.13.12.jpeg",
+          "/leg_warmers/knee_cap_leg/WhatsApp Image 2026-08-08 at 13.13.12 (1).jpeg",
+          "/leg_warmers/knee_cap_leg/WhatsApp Image 2026-08-08 at 13.49.23.jpeg",
+          "/leg_warmers/knee_cap_leg/WhatsApp Image 2026-08-08 at 13.49.23 (1).jpeg",
+        ],
       },
       {
         id: 'hipless',
         name: 'Hipless',
         description:
           'Full-length leg warmers that cover from ankle to upper thigh without a hip section, providing maximum leg warmth while remaining easy to layer.',
+        heroImage: null,
+        gallery: [],
       },
     ],
     inquiryEnabled: true,

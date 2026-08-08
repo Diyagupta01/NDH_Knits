@@ -20,6 +20,7 @@ export default function CategoryPage() {
     colors,
     specifications,
     gallery,
+    heroImage,
     subcategories = [],
     inquiryEnabled,
   } = category;
@@ -34,11 +35,19 @@ export default function CategoryPage() {
       {/* ── Category Hero ──────────────────────────── */}
       <section className={styles.hero} aria-label={`${name} category hero`}>
         <div className={styles.heroBg}>
-          <ImagePlaceholder
-            label={`${name} — Hero Image`}
-            aspect="21/9"
-            className={styles.heroBgImage}
-          />
+          {heroImage ? (
+            <img
+              src={heroImage}
+              alt={`${name} — hero`}
+              className={styles.heroBgImage}
+            />
+          ) : (
+            <ImagePlaceholder
+              label={`${name} — Hero Image`}
+              aspect="21/9"
+              className={styles.heroBgImage}
+            />
+          )}
           <div className={styles.heroOverlay} aria-hidden="true" />
         </div>
         <div className={`container ${styles.heroContent}`}>
@@ -75,10 +84,19 @@ export default function CategoryPage() {
                     {String(index + 1).padStart(2, '0')}
                   </div>
                   <div className={styles.subCardImage}>
-                    <ImagePlaceholder
-                      label={`${name} — ${sub.name}`}
-                      aspect="4/3"
-                    />
+                    {sub.heroImage ? (
+                      <img
+                        src={sub.heroImage}
+                        alt={`${name} — ${sub.name}`}
+                        className={styles.subCardImg}
+                        loading="lazy"
+                      />
+                    ) : (
+                      <ImagePlaceholder
+                        label={`${name} — ${sub.name}`}
+                        aspect="4/3"
+                      />
+                    )}
                   </div>
                   <div className={styles.subCardBody}>
                     <h3 className={styles.subCardName}>{sub.name}</h3>
@@ -90,6 +108,31 @@ export default function CategoryPage() {
                 </div>
               ))}
             </div>
+
+            {/* Per-subcategory galleries */}
+            {subcategories.some((s) => s.gallery?.length > 0) && (
+              <div className={styles.subGalleries}>
+                {subcategories.map((sub) =>
+                  sub.gallery?.length > 0 ? (
+                    <div key={`gallery-${sub.id}`} className={styles.subGallery}>
+                      <h3 className={styles.subGalleryTitle}>{sub.name}</h3>
+                      <div className={styles.subGalleryGrid}>
+                        {sub.gallery.map((img, i) => (
+                          <div key={i} className={styles.galleryItem}>
+                            <img
+                              src={img}
+                              alt={`${sub.name} — image ${i + 1}`}
+                              className={styles.galleryImg}
+                              loading="lazy"
+                            />
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ) : null
+                )}
+              </div>
+            )}
           </div>
         </section>
       )}

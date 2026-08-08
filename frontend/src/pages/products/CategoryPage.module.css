@@ -128,6 +128,19 @@
 
 .subCardImage {
   position: relative;
+  overflow: hidden;
+}
+
+.subCardImg {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--transition-slow);
+}
+
+.subCard:hover .subCardImg {
+  transform: scale(1.04);
 }
 
 .subCardBody {
@@ -150,6 +163,32 @@
   color: var(--color-text-muted);
   line-height: var(--leading-relaxed);
   flex: 1;
+}
+
+/* ── Sub-galleries ────────────────────────────────── */
+.subGalleries {
+  margin-top: var(--space-16);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+}
+
+.subGallery {}
+
+.subGalleryTitle {
+  font-size: var(--text-xl);
+  font-weight: var(--weight-semibold);
+  color: var(--color-charcoal);
+  letter-spacing: var(--tracking-tight);
+  margin-bottom: var(--space-5);
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.subGalleryGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-3);
 }
 
 /* ── Features ─────────────────────────────────────── */

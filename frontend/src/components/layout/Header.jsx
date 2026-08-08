@@ -15,6 +15,7 @@ const navLinks = [
       { label: 'Caps',               to: '/products/caps' },
       { label: 'Mufflers',           to: '/products/mufflers' },
       { label: 'Thermal Wear',       to: '/products/thermal-wear' },
+      { label: 'Leg Warmers',        to: '/products/leg-warmers' },
       { label: 'Knitted Essentials', to: '/products/knitted-essentials' },
     ],
   },
@@ -63,10 +64,13 @@ export default function Header() {
     <>
       <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`} role="banner">
         <div className={`container ${styles.inner}`}>
-          {/* Logo / Wordmark */}
+          {/* Logo */}
           <Link to="/" className={styles.logo} aria-label="NDH Knits — Home">
-            <span className={styles.logoMark}>NDH</span>
-            <span className={styles.logoKnits}>Knits</span>
+            <img
+              src="/logo_light.png"
+              alt="NDH Knits"
+              className={styles.logoImg}
+            />
           </Link>
 
           {/* Desktop Nav */}

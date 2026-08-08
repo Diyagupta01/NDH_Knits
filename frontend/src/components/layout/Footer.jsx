@@ -7,6 +7,7 @@ const categories = [
   { label: 'Caps',               to: '/products/caps' },
   { label: 'Mufflers',           to: '/products/mufflers' },
   { label: 'Thermal Wear',       to: '/products/thermal-wear' },
+  { label: 'Leg Warmers',        to: '/products/leg-warmers' },
   { label: 'Knitted Essentials', to: '/products/knitted-essentials' },
 ];
 
@@ -28,8 +29,11 @@ export default function Footer() {
         {/* Brand column */}
         <div className={styles.brand}>
           <Link to="/" className={styles.logo} aria-label="NDH Knits Home">
-            <span className={styles.logoMark}>NDH</span>
-            <span className={styles.logoKnits}>Knits</span>
+            <img
+              src="/logo_dark.png"
+              alt="NDH Knits"
+              className={styles.logoImg}
+            />
           </Link>
           <p className={styles.tagline}>A Legacy Woven in Quality.</p>
           <p className={styles.blurb}>

@@ -11,20 +11,28 @@
  */
 
 /**
+ * @typedef {Object} SubCategory
+ * @property {string} id          - Unique identifier
+ * @property {string} name        - Display name
+ * @property {string} description - Short description
+ */
+
+/**
  * @typedef {Object} ProductCategory
- * @property {string}   id               - Unique identifier
- * @property {string}   slug             - URL slug (must match route)
- * @property {string}   name             - Display name
- * @property {string}   shortDescription - One-liner for cards/grids
- * @property {string}   description      - Longer paragraph for category page overview
- * @property {string}   heroImage        - Path or URL (null = placeholder)
- * @property {string[]} gallery          - Array of image paths (empty = placeholders)
- * @property {string[]} features         - Product feature bullet points
- * @property {string[]} sizes            - Available sizes
- * @property {string[]} materials        - Material/fabric information
- * @property {string[]} colors           - Available color options
- * @property {Object}   specifications   - Key–value spec table (optional)
- * @property {boolean}  inquiryEnabled   - Whether the inquiry CTA is shown
+ * @property {string}        id               - Unique identifier
+ * @property {string}        slug             - URL slug (must match route)
+ * @property {string}        name             - Display name
+ * @property {string}        shortDescription - One-liner for cards/grids
+ * @property {string}        description      - Longer paragraph for category page overview
+ * @property {string}        heroImage        - Path or URL (null = placeholder)
+ * @property {string[]}      gallery          - Array of image paths (empty = placeholders)
+ * @property {string[]}      features         - Product feature bullet points
+ * @property {string[]}      sizes            - Available sizes
+ * @property {string[]}      materials        - Material/fabric information
+ * @property {string[]}      colors           - Available color options
+ * @property {Object}        specifications   - Key–value spec table (optional)
+ * @property {SubCategory[]} subcategories    - Sub-variants within the category (optional)
+ * @property {boolean}       inquiryEnabled   - Whether the inquiry CTA is shown
  */
 
 /** @type {ProductCategory[]} */
@@ -44,6 +52,7 @@ export const productCategories = [
     materials: [],
     colors: [],
     specifications: {},
+    subcategories: [],
     inquiryEnabled: true,
   },
   {
@@ -61,6 +70,7 @@ export const productCategories = [
     materials: [],
     colors: [],
     specifications: {},
+    subcategories: [],
     inquiryEnabled: true,
   },
   {
@@ -78,6 +88,7 @@ export const productCategories = [
     materials: [],
     colors: [],
     specifications: {},
+    subcategories: [],
     inquiryEnabled: true,
   },
   {
@@ -95,6 +106,7 @@ export const productCategories = [
     materials: [],
     colors: [],
     specifications: {},
+    subcategories: [],
     inquiryEnabled: true,
   },
   {
@@ -112,6 +124,50 @@ export const productCategories = [
     materials: [],
     colors: [],
     specifications: {},
+    subcategories: [],
+    inquiryEnabled: true,
+  },
+  {
+    id: 'leg-warmers',
+    slug: 'leg-warmers',
+    name: 'Leg Warmers',
+    shortDescription:
+      'A versatile range of knitted leg warmers available in multiple styles — from footless and knee caps to full-length and hipless variants.',
+    description:
+      'NDH Knits manufactures a complete range of leg warmers designed for comfort, warmth, and consistent fit. Available in four distinct styles to meet varied wholesale and retail requirements, our leg warmers are knitted with the same precision and quality standards applied across all NDH Knits products.',
+    heroImage: null,
+    gallery: [],
+    features: [],
+    sizes: [],
+    materials: [],
+    colors: [],
+    specifications: {},
+    subcategories: [
+      {
+        id: 'footless',
+        name: 'Footless',
+        description:
+          'Knitted leg warmers without a foot section — designed to provide warmth from ankle to thigh while allowing full freedom of movement for the foot.',
+      },
+      {
+        id: 'knee-cap',
+        name: 'Knee Cap',
+        description:
+          'A fitted knitted sleeve designed to provide targeted warmth and compression support around the knee joint.',
+      },
+      {
+        id: 'knee-cap-with-leg',
+        name: 'Knee Cap with Leg',
+        description:
+          'An extended version of the knee cap that includes a leg portion, offering combined knee support and lower leg warmth in a single knitted piece.',
+      },
+      {
+        id: 'hipless',
+        name: 'Hipless',
+        description:
+          'Full-length leg warmers that cover from ankle to upper thigh without a hip section, providing maximum leg warmth while remaining easy to layer.',
+      },
+    ],
     inquiryEnabled: true,
   },
   {
@@ -129,6 +185,7 @@ export const productCategories = [
     materials: [],
     colors: [],
     specifications: {},
+    subcategories: [],
     inquiryEnabled: true,
   },
 ];

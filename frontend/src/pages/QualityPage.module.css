@@ -170,64 +170,6 @@
   line-height: var(--leading-relaxed);
 }
 
-/* ── Process ──────────────────────────────────────── */
-.processSection {
-  background-color: var(--color-bg);
-}
-
-.processHeader {
-  margin-bottom: var(--space-12);
-}
-
-.processGrid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-5);
-}
-
-.processStep {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  padding: var(--space-6);
-  position: relative;
-}
-
-.processStepHeader {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: var(--space-4);
-}
-
-.processNumber {
-  font-size: var(--text-xs);
-  font-weight: var(--weight-bold);
-  color: var(--color-accent);
-  letter-spacing: var(--tracking-widest);
-  background: rgba(124,92,62,0.08);
-  padding: var(--space-1) var(--space-3);
-  border-radius: var(--radius-full);
-  border: 1px solid rgba(124,92,62,0.2);
-}
-
-.processArrow {
-  color: var(--color-border-dark);
-}
-
-.processTitle {
-  font-size: var(--text-base);
-  font-weight: var(--weight-semibold);
-  color: var(--color-charcoal);
-  margin-bottom: var(--space-2);
-}
-
-.processDesc {
-  font-size: var(--text-sm);
-  color: var(--color-text-muted);
-  line-height: var(--leading-relaxed);
-}
-
 /* ── CTA Banner ───────────────────────────────────── */
 .ctaBanner {
   background-color: var(--color-charcoal);
@@ -264,8 +206,7 @@
 
 /* ── Responsive ───────────────────────────────────── */
 @media (max-width: 1024px) {
-  .pillarsGrid,
-  .processGrid {
+  .pillarsGrid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
@@ -281,8 +222,7 @@
 }
 
 @media (max-width: 640px) {
-  .pillarsGrid,
-  .processGrid {
+  .pillarsGrid {
     grid-template-columns: 1fr;
   }
   .ctaInner {

@@ -20,6 +20,7 @@ export default function CategoryPage() {
     colors,
     specifications,
     gallery,
+    subcategories = [],
     inquiryEnabled,
   } = category;
 
@@ -57,6 +58,41 @@ export default function CategoryPage() {
           )}
         </div>
       </section>
+
+      {/* ── Subcategories ──────────────────────────── */}
+      {subcategories.length > 0 && (
+        <section className={`section ${styles.subcategoriesSection}`} aria-labelledby="subcategories-heading">
+          <div className="container">
+            <p className="section-label">Available Styles</p>
+            <h2 className="section-title" id="subcategories-heading">
+              {name} Variants
+            </h2>
+            <div className="divider" />
+            <div className={styles.subcategoriesGrid}>
+              {subcategories.map((sub, index) => (
+                <div key={sub.id} className={styles.subCard}>
+                  <div className={styles.subCardNumber} aria-hidden="true">
+                    {String(index + 1).padStart(2, '0')}
+                  </div>
+                  <div className={styles.subCardImage}>
+                    <ImagePlaceholder
+                      label={`${name} — ${sub.name}`}
+                      aspect="4/3"
+                    />
+                  </div>
+                  <div className={styles.subCardBody}>
+                    <h3 className={styles.subCardName}>{sub.name}</h3>
+                    <p className={styles.subCardDesc}>{sub.description}</p>
+                    <Button as={Link} to="/contact" variant="secondary" size="sm">
+                      Inquire About This Style
+                    </Button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* ── Features ───────────────────────────────── */}
       {features.length > 0 && (

@@ -117,6 +117,29 @@ PRODUCT_CATEGORIES: list[ProductCategory] = [
         inquiry_enabled=True,
     ),
     ProductCategory(
+        id="leg-warmers",
+        slug="leg-warmers",
+        name="Leg Warmers",
+        short_description=(
+            "A versatile range of knitted leg warmers available in multiple styles — "
+            "from footless and knee caps to full-length and hipless variants."
+        ),
+        description=(
+            "NDH Knits manufactures a complete range of leg warmers designed for comfort, "
+            "warmth, and consistent fit. Available in four distinct styles to meet varied "
+            "wholesale and retail requirements, our leg warmers are knitted with the same "
+            "precision and quality standards applied across all NDH Knits products."
+        ),
+        hero_image=None,
+        gallery=[],
+        features=[],
+        sizes=[],
+        materials=[],
+        colors=[],
+        specifications={},
+        inquiry_enabled=True,
+    ),
+    ProductCategory(
         id="knitted-essentials",
         slug="knitted-essentials",
         name="Knitted Essentials",

@@ -14,25 +14,31 @@ const categories = [
     slug: 'gloves',
     name: 'Gloves',
     description:
-      'Precision-knitted gloves offering warmth and flexibility, designed for wholesale supply across retail and distribution channels.',
+      'Precision-knitted gloves offering warmth and flexibility, designed for supply across retail and distribution channels.',
   },
   {
     slug: 'caps',
     name: 'Caps',
     description:
-      'Warm, well-fitted knitted caps manufactured to meet bulk requirements with consistent quality and finish.',
+      'Warm, well-fitted knitted caps manufactured to meet all requirements with consistent quality and finish.',
   },
   {
     slug: 'mufflers',
     name: 'Mufflers',
     description:
-      'Soft, durable mufflers produced in a variety of styles to suit wholesale market demands across India.',
+      'Soft, durable mufflers produced in a variety of styles to suit market demands across India.',
   },
   {
     slug: 'thermal-wear',
     name: 'Thermal Wear',
     description:
       'Reliable thermal innerwear engineered to retain warmth without compromising on comfort or wearability.',
+  },
+  {
+    slug: 'leg-warmers',
+    name: 'Leg Warmers',
+    description:
+      'A versatile range of knitted leg warmers — footless, knee cap, knee cap with leg, and hipless — for year-round wholesale supply.',
   },
   {
     slug: 'knitted-essentials',

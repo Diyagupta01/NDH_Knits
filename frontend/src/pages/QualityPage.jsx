@@ -1,45 +1,7 @@
 import { Link } from 'react-router-dom';
 import Button from '../components/ui/Button';
+import ProcessSection from '../components/home/ProcessSection';
 import styles from './QualityPage.module.css';
-
-const processSteps = [
-  {
-    number: '01',
-    title: 'Raw Material Inspection',
-    description:
-      'All incoming yarn and raw materials are inspected for quality, consistency, and suitability before entering the production process.',
-  },
-  {
-    number: '02',
-    title: 'Manufacturing',
-    description:
-      'Products are knitted with precision under controlled conditions, ensuring consistent stitch quality and dimensional accuracy across every batch.',
-  },
-  {
-    number: '03',
-    title: 'In-Process Quality Checks',
-    description:
-      'Regular quality checks are conducted throughout the manufacturing process to identify and correct any issues before they affect the final output.',
-  },
-  {
-    number: '04',
-    title: 'Final Inspection',
-    description:
-      'Every batch undergoes a thorough final inspection before being cleared for packaging — checking for defects, consistency, and finish quality.',
-  },
-  {
-    number: '05',
-    title: 'Packaging',
-    description:
-      'Approved products are carefully packaged to maintain quality during storage and transit, meeting retail and wholesale presentation standards.',
-  },
-  {
-    number: '06',
-    title: 'Dispatch',
-    description:
-      'Only quality-approved, properly packaged products are dispatched — ensuring that what arrives at our customers matches what was ordered.',
-  },
-];
 
 const qualityPillars = [
   {
@@ -162,42 +124,8 @@ export default function QualityPage() {
         </div>
       </section>
 
-      {/* ── Quality Process ────────────────────────── */}
-      <section className={`section ${styles.processSection}`} aria-labelledby="process-heading">
-        <div className="container">
-          <div className={styles.processHeader}>
-            <div>
-              <p className="section-label">Our Process</p>
-              <h2 className="section-title" id="process-heading">
-                The Quality Journey
-              </h2>
-              <div className="divider" />
-              <p className="section-subtitle">
-                Every NDH Knits product moves through a structured quality pipeline before
-                reaching our customers.
-              </p>
-            </div>
-          </div>
-          <div className={styles.processGrid}>
-            {processSteps.map((step, index) => (
-              <div key={step.number} className={styles.processStep}>
-                <div className={styles.processStepHeader}>
-                  <span className={styles.processNumber}>{step.number}</span>
-                  {index < processSteps.length - 1 && (
-                    <div className={styles.processArrow} aria-hidden="true">
-                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M4 10h12M12 6l4 4-4 4"/>
-                      </svg>
-                    </div>
-                  )}
-                </div>
-                <h3 className={styles.processTitle}>{step.title}</h3>
-                <p className={styles.processDesc}>{step.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* ── Manufacturing Process ───────────────────── */}
+      <ProcessSection />
 
       {/* ── CTA ────────────────────────────────────── */}
       <section className={styles.ctaBanner} aria-label="Quality inquiry CTA">

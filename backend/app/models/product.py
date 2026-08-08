@@ -6,6 +6,14 @@ from typing import Optional
 from pydantic import BaseModel, Field
 
 
+class SubCategory(BaseModel):
+    """A sub-variant within a product category."""
+
+    id: str
+    name: str
+    description: str
+
+
 class ProductCategory(BaseModel):
     """A single product category."""
 
@@ -21,6 +29,7 @@ class ProductCategory(BaseModel):
     materials: list[str] = Field(default_factory=list)
     colors: list[str] = Field(default_factory=list)
     specifications: dict[str, str] = Field(default_factory=dict)
+    subcategories: list[SubCategory] = Field(default_factory=list)
     inquiry_enabled: bool = True
 
 

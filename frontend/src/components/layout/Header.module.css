@@ -22,10 +22,16 @@
 /* ── Logo ─────────────────────────────────────────── */
 .logo {
   display: flex;
-  align-items: baseline;
-  gap: 3px;
+  align-items: center;
   text-decoration: none;
   flex-shrink: 0;
+}
+
+.logoImg {
+  height: 44px;
+  width: auto;
+  display: block;
+  object-fit: contain;
 }
 
 .logoMark {

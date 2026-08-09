@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useParams, Link, Navigate, useSearchParams } from 'react-router-dom';
 import { getCategoryBySlug, productCategories } from '../../data/products';
 import ImagePlaceholder from '../../components/ui/ImagePlaceholder';
@@ -276,7 +276,7 @@ function ProductCard({ product, categorySlug, styleSlug }) {
           {displayImage ? (
             <img
               src={displayImage}
-              alt={`${product.name} — ${activeVariant ? activeVariant.colour : ''} | NDH Knits ${style.name}`}
+              alt={`${product.name} — ${activeVariant ? activeVariant.colour : ''} | NDH Knits ${styleSlug}`}
               className={styles.productCardImg}
               loading="lazy"
             />

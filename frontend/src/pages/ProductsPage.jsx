@@ -21,7 +21,7 @@ export default function ProductsPage() {
           <h1 className={styles.heroTitle}>Our Products</h1>
           <div className={styles.heroDivider} />
           <p className={styles.heroSubtitle}>
-            Six categories of precision-knitted hosiery products — manufactured in
+            {productCategories.length} categories of precision-knitted hosiery products — manufactured in
             Ludhiana and supplied to wholesalers and retailers across India.
           </p>
         </div>

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import Button from '../ui/Button';
+import { productCategories } from '../../data/products';
 import styles from './HeroSection.module.css';
 
 export default function HeroSection() {
@@ -52,7 +53,7 @@ export default function HeroSection() {
           </div>
           <div className={styles.stripDivider} aria-hidden="true" />
           <div className={styles.strip}>
-            <span className={styles.stripValue}>6</span>
+            <span className={styles.stripValue}>{productCategories.length}</span>
             <span className={styles.stripLabel}>Product Categories</span>
           </div>
           <div className={styles.stripDivider} aria-hidden="true" />

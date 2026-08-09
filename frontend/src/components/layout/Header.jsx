@@ -1,26 +1,22 @@
 import { useState, useEffect, useRef } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import Button from '../ui/Button';
+import { productCategories } from '../../data/products';
 import styles from './Header.module.css';
 
 const navLinks = [
-  { label: 'Home',     to: '/' },
-  { label: 'About',    to: '/about' },
+  { label: 'Home',    to: '/' },
+  { label: 'About',   to: '/about' },
   {
     label: 'Products',
     to: '/products',
-    children: [
-      { label: 'Socks',              to: '/products/socks' },
-      { label: 'Gloves',             to: '/products/gloves' },
-      { label: 'Caps',               to: '/products/caps' },
-      { label: 'Mufflers',           to: '/products/mufflers' },
-      { label: 'Thermal Wear',       to: '/products/thermal-wear' },
-      { label: 'Leg Warmers',        to: '/products/leg-warmers' },
-      { label: 'Knitted Essentials', to: '/products/knitted-essentials' },
-    ],
+    children: productCategories.map((c) => ({
+      label: c.name,
+      to: `/products/${c.slug}`,
+    })),
   },
-  { label: 'Quality',  to: '/quality' },
-  { label: 'Contact',  to: '/contact' },
+  { label: 'Quality', to: '/quality' },
+  { label: 'Contact', to: '/contact' },
 ];
 
 export default function Header() {
